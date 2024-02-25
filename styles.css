@@ -34,4 +34,22 @@
     color: white;
   }
 
- 
+
+  
+  .display{
+    display: none;
+    position: absolute;
+    background-color: rgb(63, 65, 99);
+    color: rgb(255, 255, 255);
+    right:10px;
+    padding: 150px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.display.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(10px); /* Adjust as needed */
+}
+
