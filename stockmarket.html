@@ -33,12 +33,23 @@
         });
         </script>
         </div>
-        <div class="button-container">
-            <button class="buy-button">Buy</button>
-            <button class="sell-button">Sell</button>
-            
-          </div>
 
+
+        <div class="button-container">
+            <button class="buy-button" onclick="toggleDisplay('buy-display')">Buy</button>
+            <div class="display buy-display"><b>Quantity:</b></div>
+            <button class="sell-button" onclick="toggleDisplay('sell-display')">Sell</button>
+            <div class="display sell-display"><b>Quantity:</b></div>
+        </div>
+    
+        <script>
+            function toggleDisplay(displayClass) {
+                const display = document.querySelector(`.${displayClass}`);
+                display.classList.toggle('visible');
+            }
+        </script>
+        
+    
 
 
 </body>
