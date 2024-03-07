@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>Shark signin page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loading_animation.css">
+    
     <style>
     body {
         
@@ -17,6 +20,9 @@
     <script src="https://kit.fontawesome.com/f68bc1aa2e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="preloader" class="preloader"></div>
+
+
     <div class="container">
         <div class="form-box">
             <h1 id="title">sign up</h1>
@@ -78,6 +84,18 @@
             signupBtn.classList.remove("disable");
             signinBtn.classList.add("disable");
         }
+    </script>
+
+    <script>
+        window.addEventListener("load", function(){
+            var loader = document.getElementById("preloader");
+            loader.style.animation = "none"; // Pause the animation
+            setTimeout(function(){
+                loader.style.display = "none"; // Hide the preloader after 1 second
+            }, 1500); // 1000 milliseconds = 1 second
+        });
+
+
     </script>
     
 
