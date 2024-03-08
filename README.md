@@ -1,1 +1,1 @@
-This project is based on a working of a stock market . The design of a sign in page and a sign up page is also been enclosed.
+This project is based on the working of a stock market .This is a replica project of the trading platform in which we designed a database for buy and sell.
