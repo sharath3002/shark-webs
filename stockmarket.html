@@ -6,8 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale-1.0">
         <link rel="stylesheet" href="styles.css">
         <title>Shark Webs</title>
+        <link rel="stylesheet" href="loading_animation.css">
     </head>
     <body>
+        <div id="preloader" class="preloader"></div>
+    
 
 
     <div class="tradingview-widget-container"> 
@@ -48,10 +51,17 @@
                 display.classList.toggle('visible');
             }
         </script>
+
+        <script>
+            window.addEventListener("load", function(){
+                var loader = document.getElementById("preloader");
+                loader.style.animation = "none"; // Pause the animation
+                setTimeout(function(){
+                    loader.style.display = "none"; // Hide the preloader after 1 second
+                }, 300); // 1000 milliseconds = 1 second
+            });
+            </script>
         
-    
-
-
 </body>
 </html>
 
