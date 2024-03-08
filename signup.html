@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale-1.0">
-    <title>Shark signin page</title>
+    <title>Shark Webs</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loading_animation.css">
     
     <style>
-    body {
-        
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mandatory-message {
+            color: red;
+            font-size: 20px;
+            display: none;
+        }
     </style>
     <script src="https://kit.fontawesome.com/f68bc1aa2e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="preloader" class="preloader"></div>
-
 
     <div class="container">
         <div class="form-box">
@@ -30,59 +34,52 @@
                 <div class="input-group">
                     <div class="input-field" id="nameField">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" required>
+                        <span class="mandatory-message" id="nameMandatory">*</span>
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email">
+                        <input  type="email" placeholder="Email" required>
+                        <span class="mandatory-message" id="emailMandatory">*</span>
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input  type="password" placeholder="Password" required>
+                        <span class="mandatory-message" id="passwordMandatory">*</span>
                     </div>
-                    <p>
-                        Forgot password ? <a href=""#>Click Here!</a>
-                    </p>
 
+                    <p>
+                        Already a customer? <a href="signin.html">Sign in!</a>
+                    </p>
                 </div>
                 <div class="btn-field">
-                    
-                    <a href="stockmarket.html">
-                        <button type="button" id="signupBtn">sign up</button>
-                    </a>
-                    
-                    <a >
-                        <button type="button" id="signinBtn" class="disable">sign in</button>
-                    </a>
-                    <!--<button type="button" id="signupBtn"><a href="stockmarket.html" style="text-decoration: none; color: inherit;" #> sign up </a></button>
-                    <button type="button" id="signinBtn" class="disable"><a href="stockmarket.html" style="text-decoration: none; color:inherit;" #>sign in</a></button>-->
+                   <a> <button type="button" id="signinBtn">sign up</button></a>
                 </div>
             </form>
         </div>
-        
     </div>
+
     <script>
-        let signupBtn = document.getElementById("signupBtn");
-        let signinpBtn = document.getElementById("signinBtn");
+        let signinBtn = document.getElementById("signinBtn");
         let nameField = document.getElementById("nameField");
-        let title = document.getElementById("title");
 
         signinBtn.onclick = function(){
-            
-            nameField.style.maxHeight="0";
-            title.innerHTML="sign in";
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
-
-
-        }
-        signupBtn.onclick = function(){
-            nameField.style.maxHeight="60px";
-            title.innerHTML="sign up";
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
+            let inputs = document.querySelectorAll('input[required]');
+            inputs.forEach(input => {
+                let message = input.nextElementSibling;
+                if (input.value.trim() === "") {
+                    message.style.display = "inline";
+                } else {
+                    message.style.display = "none";
+                }
+            });
+            if (!document.querySelector('.mandatory-message[style="display: inline;"]')) {
+                // All mandatory fields are filled
+                // Redirect or perform other action here
+                window.location.href = "stockmarket.html";
+            }
         }
     </script>
 
@@ -94,10 +91,6 @@
                 loader.style.display = "none"; // Hide the preloader after 1 second
             }, 1500); // 1000 milliseconds = 1 second
         });
-
-
     </script>
-    
-
 </body>
 </html>
